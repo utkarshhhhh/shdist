@@ -1,0 +1,50 @@
+Example-1
+
+9
+14
+a b 4
+b c 8
+a h 8
+b h 11
+h i 7
+c i 2
+i g 6
+h g 1
+c d 7
+f c 4
+f g 2
+d f 14
+d e 9
+e f 10
+
+
+Example-2
+
+6
+10
+a b 3
+a e 6
+a f 5
+b f 4
+b c 1
+c f 4
+c d 6
+d f 5
+d e 8
+e f 2
+
+Example-3
+
+7
+10
+a b 1
+a c 1
+c b 1
+b d 4
+d c -6
+d e 1
+d f 1
+e f 1
+e g 3
+f g 1
+
