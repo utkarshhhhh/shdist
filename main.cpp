@@ -61,15 +61,15 @@ int maxx(int car, int bus, int onfoot, int bike)
     return maxi;
 }
 
-void speedFile()
+bool speedFile()
 {
     ifstream fin("speed.txt");
     int car, bus, onfoot, bike;
 
     if (!fin)
     {
-        cout << "Error, please create speed.txt";
-        return;
+        cout << "Error, please create speed.txt\nFinding min distance instead\n\n";
+        return false;
     }
 
     for (int i = 0; i < N; i++)
@@ -85,16 +85,17 @@ void speedFile()
     }
 
     fin.close();
+    return true;
 }
 
-void graphFile()
+bool graphFile()
 {
     ifstream fin("graph.txt");
 
     if (!fin)
     {
-        cout << "Error, please create graph.txt";
-        return;
+        cout << "Error, please create graph.txt\nExiting program\n\n";
+        return false;
     }
 
     fin >> N;
@@ -124,19 +125,21 @@ void graphFile()
     }
 
     fin.close();
+    return true;
 }
 
-void graph(int isDistance)
+void graph(int &isDistance)
 {
     if (isDistance == 0)
         cout << "\nFinding shortest time...\n";
     else
         cout << "\nFinding shortest distance...\n";
 
-    graphFile();
+    if (!graphFile())
+        return;
 
-    if (isDistance == 0)
-        speedFile();
+    if (isDistance == 0 && !speedFile())
+        isDistance = 1;
 }
 
 void fwalgo()
